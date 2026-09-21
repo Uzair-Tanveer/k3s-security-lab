@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-demo
+  namespace: security-lab
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: ngix-demo
+  template:
+    metadata:
+      labels:
+        app: ngix-demo
+    spec:
+      containers:
+      - name: ngix
+        image: nginx:stable
+        ports:
+        - containerPort: 80
